@@ -61,30 +61,6 @@ export class ScoreCardPage {
 
 
 
-  // setTee(teeIndex){
-  //   let mycourse = selcourse.data.holes;
-  //   let holeOneTees = selcourse.data.holes[0].teeBoxes;
-  //   clearLeftnRight();
-  //   appendRowTitles(holeOneTees ,teeIndex);
-  //
-  //   addUpTotals(mycourse, teeIndex);
-  //
-  //   for(let i = 0; i < mycourse.length; i++){
-  //     $('.right').append(
-  //       '<div class="column" id="c'+ i +'">'+
-  //       '<div class="cheader">' +(i+1) +'</div>'+
-  //       '<div id="yards'+ i +'" class="yards">'+ mycourse[i].teeBoxes[teeIndex].yards +'</div>'+
-  //       '<div id="par'+ i +'" class="par">'+ mycourse[i].teeBoxes[teeIndex].par +'</div>'+
-  //       '<div id="hcp'+ i +'" class="hcp">'+ mycourse[i].teeBoxes[teeIndex].hcp +'</div>'+
-  //       '</div>');
-  //   }
-  //   totalsIn(totalYardsIn, totalParIn, totalHCPIn);
-  //   totalOut(totalYardsOut, totalParOut, totalHCPOut);
-  //   totalTot(totalYardsIn, totalParIn, totalHCPIn, totalYardsOut, totalParOut, totalHCPOut);
-  //   playerHeader();
-  //   buildCard();
-  //   zeroTotals();
-  // }
 
 
 
