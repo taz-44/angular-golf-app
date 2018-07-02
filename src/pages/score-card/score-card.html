@@ -33,41 +33,53 @@
       </div>
     </div>
     <div class="right">
-      <div *ngFor="let hole of holes; index as i ">
+      <div *ngFor="let hole of holesIn; index as i "  >
 
         <div class="column" id="c{{i + 1}}">
           <div class="cheader"> {{i + 1}}</div>
           <div id="yards{{i + 1}}" class="yards">{{hole.teeBoxes[this.difficultyIndex].yards }}</div>
           <div id="par{{i + 1}}" class="par">{{hole.teeBoxes[this.difficultyIndex].par}}</div>
           <div id="hcp{{i + 1}}" class="hcp">{{hole.teeBoxes[this.difficultyIndex].hcp }}</div>
-
           <div *ngFor="let playerInput of pArray; index as p">
-              <ion-input type="number" class="holeInput player{{p}}" id="p{{p}}h{{i}}"></ion-input>
+              <input type="number" class="holeInput player{{p}}" id="p{{p}}h{{i}}">
           </div>
+        </div>
 
+      </div>
+
+      <div  class="column" id="totalIn">
+        <div class="totalsIN">IN</div>
+        <div id="yardsIn">{{totalYardsIn}}</div>
+        <div id="parIn">{{totalParIn}}</div>
+        <div id="hcpIn">{{totalHCPIn}}</div>
+      </div>
+
+      <div *ngFor="let hole of holesOut; index as i "  >
+        <div class="column" id="c{{i + 10}}">
+          <div class="cheader"> {{i + 10}}</div>
+          <div id="yards{{i + 10}}" class="yards">{{hole.teeBoxes[this.difficultyIndex].yards }}</div>
+          <div id="par{{i + 10}}" class="par">{{hole.teeBoxes[this.difficultyIndex].par}}</div>
+          <div id="hcp{{i + 10}}" class="hcp">{{hole.teeBoxes[this.difficultyIndex].hcp }}</div>
+          <div *ngFor="let playerInput of pArray; index as p">
+            <input type="number" class="holeInput player{{p}}" id="p{{p}}h{{i}}">
+          </div>
         </div>
 
 
       </div>
-      <div *ngIf="i === 9">
-        <div  class="column" id="totalIn">
-          <div class="totalsIN">IN</div>
-          <div id="yardsIn">'+ totalYardsIn +'</div>
-          <div id="parIn">'+ totalParIn +'</div>
-          <div id="hcpIn">'+ totalHCPIn +'</div>
-        </div>
-      </div>
+
+
       <div class="column" id="totalOut">
         <div class="totals">OUT</div>
-        <div id="yardsOut">'+ totalYardsOut +'</div>
-        <div id="parOut">'+ totalParOut +'</div>
-        <div id="hcpOut">'+ totalHCPOut +'</div>
+        <div id="yardsOut">{{totalYardsOut}}</div>
+        <div id="parOut">{{totalParOut}}</div>
+        <div id="hcpOut">{{totalHCPOut}}</div>
       </div>
       <div class="column" id="totalScore">
         <div class="totalsTot">TOT</div>
-        <div id="yardsTot">'+ (totalYardsIn + totalYardsOut) +'</div>
-        <div id="parTot">'+ (totalParIn + totalParOut) +'</div>
-        <div id="hcpTot">'+ (totalHCPIn + totalHCPOut) +'</div>
+        <div id="yardsTot">{{totalYardsIn + totalYardsOut}}</div>
+        <div id="parTot">{{totalParIn + totalParOut}}</div>
+        <div id="hcpTot">{{totalHCPIn + totalHCPOut}}</div>
       </div>
 
     </div>
@@ -75,3 +87,5 @@
 
 
 </ion-content>
+
+
