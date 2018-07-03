@@ -31,10 +31,10 @@ export class ScoreCardPage {
   holesIn: Array<any> = [];
   holesOut: Array<any> = [];
   difficulty: string;
-  difficultyIndex:number = 0;
+  difficultyIndex: number = 0;
   totalYardsIn: number = 0;
   totalParIn: number = 0;
-  totalHCPIn:number = 0;
+  totalHCPIn: number = 0;
   totalYardsOut: number = 0;
   totalParOut: number = 0;
   totalHCPOut: number = 0;
@@ -86,11 +86,32 @@ export class ScoreCardPage {
       for(let i = 0; i < this.players; i++){
         this.pArray.push('player ' + (i+1));
       }
-      console.log(`this.pArray = [ ${this.pArray} ]`);
+      console.log('this.pArray');
+      console.log( this.pArray )
     });
 
-    document.addEventListener("DOMContentLoaded", function(event) {
-      //do work
+    document.addEventListener("keyup", function(event) {
+      let courseLen = selcourse.data.holes.length;
+      for(let p = 1;  p <= numplayers; p++){
+        totalPIn = 0;
+        totalPOut = 0;
+        if(p){
+          for(let h = 0; h < courseLen; h++){
+            if(h <= 8){
+              let selectedInput = $('#p'+p+'h'+h);
+              totalPIn += Number(selectedInput.val());
+              $('#player'+p+'scoreIn').html(totalPIn);
+            }
+            if(h < courseLen && h >= 9){
+              let selectedInput = $('#p'+p+'h'+h);
+              totalPOut += Number(selectedInput.val());
+              $('#player'+p+'scoreOut').html(totalPOut);
+            }
+          }
+          $('#player'+p+'totalScore').html(totalPIn+totalPOut);
+
+        }
+      }
     });
 
 

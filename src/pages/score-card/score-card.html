@@ -52,6 +52,12 @@
         <div id="yardsIn">{{totalYardsIn}}</div>
         <div id="parIn">{{totalParIn}}</div>
         <div id="hcpIn">{{totalHCPIn}}</div>
+
+
+        <div *ngFor="let p of pArray" class="scoreBox">
+          <div id="player{{p}}scoreIn"></div>
+        </div>
+
       </div>
 
       <div *ngFor="let hole of holesOut; index as i "  >
@@ -74,12 +80,18 @@
         <div id="yardsOut">{{totalYardsOut}}</div>
         <div id="parOut">{{totalParOut}}</div>
         <div id="hcpOut">{{totalHCPOut}}</div>
+        <div *ngFor="let p of pArray" class="scoreBox">
+          <div id="player{{p}}scoreOut"></div>
+        </div>
       </div>
       <div class="column" id="totalScore">
         <div class="totalsTot">TOT</div>
         <div id="yardsTot">{{totalYardsIn + totalYardsOut}}</div>
         <div id="parTot">{{totalParIn + totalParOut}}</div>
         <div id="hcpTot">{{totalHCPIn + totalHCPOut}}</div>
+      </div>
+      <div *ngFor="let p of pArray" class="scoreBox">
+        <div id="player{{p}}totalScore"></div>
       </div>
 
     </div>

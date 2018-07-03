@@ -16,7 +16,7 @@ export class GolfApi {
 
   getCourseDetails(courseId): Observable<any>{
     return this.http.get(`${this.baseUrl}${courseId}`);
-
   }
+  
 
 }
