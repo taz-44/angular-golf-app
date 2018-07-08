@@ -38,6 +38,8 @@ export class ScoreCardPage {
   totalYardsOut: number = 0;
   totalParOut: number = 0;
   totalHCPOut: number = 0;
+  totalPIn : number = 0;
+  totalPOut : number = 0;
 
   ionViewDidLoad() {
 
@@ -89,34 +91,37 @@ export class ScoreCardPage {
       console.log('this.pArray');
       console.log( this.pArray )
     });
-
-    document.addEventListener("keyup", function(event) {
-      let courseLen = selcourse.data.holes.length;
-      for(let p = 1;  p <= numplayers; p++){
-        totalPIn = 0;
-        totalPOut = 0;
-        if(p){
-          for(let h = 0; h < courseLen; h++){
-            if(h <= 8){
-              let selectedInput = $('#p'+p+'h'+h);
-              totalPIn += Number(selectedInput.val());
-              $('#player'+p+'scoreIn').html(totalPIn);
-            }
-            if(h < courseLen && h >= 9){
-              let selectedInput = $('#p'+p+'h'+h);
-              totalPOut += Number(selectedInput.val());
-              $('#player'+p+'scoreOut').html(totalPOut);
-            }
-          }
-          $('#player'+p+'totalScore').html(totalPIn+totalPOut);
-
-        }
-      }
-    });
-
-
-
   }
 
+  addUpInputs() {
+
+    let courseLen = this.holes.length;
+    for (let p = 0; p < this.pArray.length; p++) {
+      this.totalPIn = 0;
+      this.totalPOut = 0;
+      if (p < this.pArray.length) {
+        for (let h = 0; h < courseLen; h++) {
+          if (h <= 8) {
+            let selectedInput = document.getElementById(`p${p}h${h}`);
+            console.log(selectedInput);
+            this.totalPIn += Number(selectedInput.value);
+
+            console.log("total in "+this.totalPIn);
+            document.getElementById('player' + p + 'scoreIn').innerText = String(this.totalPIn);
+
+          }
+          if (h < courseLen && h >= 10) {
+            let selectedInput = document.getElementById(`p${p}h${h}`);
+            console.log(selectedInput);
+            this.totalPOut += Number(selectedInput.value);
+            console.log("total out "+this.totalPOut);
+            document.getElementById('player' + p + 'scoreOut').innerText = String(this.totalPOut);
+
+          }
+        }
+        document.getElementById('player' + p + 'totalScore').innerText = (this.totalPIn + this.totalPOut);
+      }
+    }
+  }
 
 }

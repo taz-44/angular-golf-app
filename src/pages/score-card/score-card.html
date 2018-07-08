@@ -41,7 +41,7 @@
           <div id="par{{i + 1}}" class="par">{{hole.teeBoxes[this.difficultyIndex].par}}</div>
           <div id="hcp{{i + 1}}" class="hcp">{{hole.teeBoxes[this.difficultyIndex].hcp }}</div>
           <div *ngFor="let playerInput of pArray; index as p">
-              <input type="number" class="holeInput player{{p}}" id="p{{p}}h{{i}}">
+              <input type="number" class="holeInput player{{p}}" id="p{{p}}h{{i}}" (change)="addUpInputs()">
           </div>
         </div>
 
@@ -54,8 +54,8 @@
         <div id="hcpIn">{{totalHCPIn}}</div>
 
 
-        <div *ngFor="let p of pArray" class="scoreBox">
-          <div id="player{{p}}scoreIn"></div>
+        <div *ngFor="let p of pArray; index as i" class="scoreBox">
+          <div id="player{{i}}scoreIn"></div>
         </div>
 
       </div>
@@ -67,7 +67,7 @@
           <div id="par{{i + 10}}" class="par">{{hole.teeBoxes[this.difficultyIndex].par}}</div>
           <div id="hcp{{i + 10}}" class="hcp">{{hole.teeBoxes[this.difficultyIndex].hcp }}</div>
           <div *ngFor="let playerInput of pArray; index as p">
-            <input type="number" class="holeInput player{{p}}" id="p{{p}}h{{i}}">
+            <input type="number" class="holeInput player{{p}}" id="p{{p}}h{{i+ 10}}" (change)="addUpInputs()">
           </div>
         </div>
 
@@ -80,8 +80,8 @@
         <div id="yardsOut">{{totalYardsOut}}</div>
         <div id="parOut">{{totalParOut}}</div>
         <div id="hcpOut">{{totalHCPOut}}</div>
-        <div *ngFor="let p of pArray" class="scoreBox">
-          <div id="player{{p}}scoreOut"></div>
+        <div *ngFor="let p of pArray; index as i" class="scoreBox">
+          <div id="player{{i}}scoreOut"></div>
         </div>
       </div>
       <div class="column" id="totalScore">
@@ -89,10 +89,11 @@
         <div id="yardsTot">{{totalYardsIn + totalYardsOut}}</div>
         <div id="parTot">{{totalParIn + totalParOut}}</div>
         <div id="hcpTot">{{totalHCPIn + totalHCPOut}}</div>
+        <div *ngFor="let p of pArray; index as i" class="scoreBox">
+          <div id="player{{i}}totalScore"></div>
+        </div>
       </div>
-      <div *ngFor="let p of pArray" class="scoreBox">
-        <div id="player{{p}}totalScore"></div>
-      </div>
+
 
     </div>
   </div>
